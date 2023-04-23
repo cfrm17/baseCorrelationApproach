@@ -26,7 +26,7 @@ As shown below in this report, five mapping criteria have been implemented in th
 
 In the approach, the procedure involves four steps. The first step is to determine the implied correlation for each tranche of a specified index trade, which is named the “Source Trade” on the template.  From the implied correlation, we could get the implied expected loss of each tranche, denoted as  for ith tranche with attachment point and detachment point  . For example, the standard North America index is tranched into 6 tranches with  .  
 
-Step two is to convert the expected loss of each tranche into a base correlation curve, by using the pricing model (see https://finpricing.com/lib/EqCallable.html ) in reverse to match expected loss function for a series of synthetically created equity tranches
+Step two is to convert the expected loss of each tranche into a base correlation curve, by using the pricing model in reverse to match expected loss function for a series of synthetically created equity tranches
 
 (1)		 
 
@@ -34,18 +34,6 @@ Having worked out the base correlation curve for the reference trade, the remain
 
 In the third step, an “equivalent” base correlation curve for the bespoke trade is calculated by scaling expected loss function of a series of equity tranches of the bespoke trade to that of the source trade. In other words, we intend to find a set of points for the target trade   which is “equivalent” to the   on the source base correlation curve. Five criteria for solving the equivalent tranches have been implemented, as shown in Table 1. 
 
-Table 1. Five criteria of finding “equivalent” base correlation curve of the target trade
-Criteria	Equations to solve 
-
-Loss Ratio	 
-
-Loss Fraction	 *
-
-Breakeven Spread	 
-
-Scale	 
-
-Probability	 
 
 * - Principal amount of  tranche of the target trade
 
@@ -62,3 +50,6 @@ The current approach cannot be applied to CDO squared and cubed, although the su
 Several models, which are different from approved GCP Poisson model and Normal Copula model, have been implemented in the template, for example, a stochastic recovery rate model with beta distribution.  They are not tested this time and subject to future vetting, when GCP Phase II pricing engine is submitted.
 
 
+Reference:
+
+https://finpricing.com/curveVolList.html
